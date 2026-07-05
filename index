@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domain Data Manager</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+padding:20px;
+}
+
+h2{
+text-align:center;
+}
+
+#search{
+width:100%;
+padding:10px;
+margin:15px 0;
+font-size:16px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:#fff;
+}
+
+th{
+background:#007bff;
+color:white;
+padding:10px;
+position:sticky;
+top:0;
+}
+
+td{
+border:1px solid #ddd;
+padding:8px;
+vertical-align:top;
+}
+
+.copyBtn{
+margin-top:5px;
+padding:4px 10px;
+background:#28a745;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:4px;
+font-size:12px;
+}
+
+.copyBtn:hover{
+background:#1e7e34;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Domain Data</h2>
+
+<input type="text" id="search" placeholder="Search...">
+
+<table id="myTable">
+
+<thead>
+
+<tr>
+
+<th>Domain</th>
+<th>Meta Title</th>
+<th>Meta Description</th>
+<th>Username</th>
+<th>Full Name</th>
+<th>Email</th>
+<th>Password</th>
+<th>Page Link</th>
+<th>Address</th>
+<th>City</th>
+<th>Country</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>nexora.com<br><button class="copyBtn" onclick="copyText('nexora.com')">Copy</button></td>
+
+<td>Nexora – Digital Innovation Hub<br><button class="copyBtn" onclick="copyText('Nexora – Digital Innovation Hub')">Copy</button></td>
+
+<td>Discover modern digital solutions, business tools and technology updates.<br><button class="copyBtn" onclick="copyText('Discover modern digital solutions, business tools and technology updates.')">Copy</button></td>
+
+<td>nexora<br><button class="copyBtn" onclick="copyText('nexora')">Copy</button></td>
+
+<td>Nexora Technologies<br><button class="copyBtn" onclick="copyText('Nexora Technologies')">Copy</button></td>
+
+<td>nexora.team@gmail.com<br><button class="copyBtn" onclick="copyText('nexora.team@gmail.com')">Copy</button></td>
+
+<td>Nexora@123<br><button class="copyBtn" onclick="copyText('Nexora@123')">Copy</button></td>
+
+<td>https://nexora.com<br><button class="copyBtn" onclick="copyText('https://nexora.com')">Copy</button></td>
+
+<td>221 Market Street<br><button class="copyBtn" onclick="copyText('221 Market Street')">Copy</button></td>
+
+<td>New York<br><button class="copyBtn" onclick="copyText('New York')">Copy</button></td>
+
+<td>USA<br><button class="copyBtn" onclick="copyText('USA')">Copy</button></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<script>
+
+function copyText(text){
+navigator.clipboard.writeText(text);
+alert("Copied : "+text);
+}
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+let filter=this.value.toLowerCase();
+
+let rows=document.querySelectorAll("#myTable tbody tr");
+
+rows.forEach(function(row){
+
+row.style.display=row.innerText.toLowerCase().includes(filter)?"":"none";
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
